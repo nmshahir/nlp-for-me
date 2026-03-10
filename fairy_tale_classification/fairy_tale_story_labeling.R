@@ -7,7 +7,10 @@
 # Github: nmshahir
 # Data source: Project Gutenberg
 # Data Obtained: 2026.03.10
+# Date Created: 2026.03.09
+# Last Update: 2026.03.10
 #################################################################
+
 install.packages("tidytext")
 # install.packages("pak")
 pak::pak("ropensci/gutenbergr")
