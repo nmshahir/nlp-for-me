@@ -99,7 +99,6 @@ crimson_fairy_origins <- tibble::tribble(
 
 green_fairy_origins <- tibble::tribble(
   ~Tale                                                    , ~AT    , ~Country       ,
-  NA                                                       , NA     , " "            ,
   "Allerleiraugh, or the Many-Furred Creature"             , "510B" , "German"       ,
   "Biter Bit"                                              , "1539" , "European"     ,
   "Blue Bird"                                              , "432"  , "French"       ,
@@ -146,7 +145,6 @@ green_fairy_origins <- tibble::tribble(
 
 grey_fairy_origins <- tibble::tribble(
   ~Tale                                              , ~AT                      , ~Country       ,
-  NA                                                 , NA                       , " "            ,
   "Bear"                                             , "510B"                   , "Unattributed" ,
   "Bobino"                                           , "671"                    , "Unattributed" ,
   "Cannetella"                                       , "900"                    , "Italian"      ,
@@ -186,7 +184,6 @@ grey_fairy_origins <- tibble::tribble(
 
 lilac_fairy_origins <- tibble::tribble(
   ~Tale                            , ~AT     , ~Country       ,
-  NA                               , NA      , " "            ,
   "Battle of Birds"                , "NA"    , "Scottish"     ,
   "BelievingHusbands"              , "1406"  , "Scottish"     ,
   "Bones of Djulung"               , "NA"    , "Unattributed" ,
@@ -309,7 +306,7 @@ pink_fairy_origins <- tibble::tribble(
   "How the Dragon Was Tricked"                       , "328"             , "Greek"        ,
   "How the Hermit Helped to Win the King's Daughter" , "NA"              , "Italian"      ,
   "I Know What I have Learned"                       , "NA"              , "Danish"       ,
-  "The Jackal, Dove and Panther"                     , "56"              , "African"      ,
+  "The Jackal, Dove and Panther"                     , "56, 56D, 56C"    , "African"      ,
   "King Lindorm"                                     , "433B"            , "Swedish."     ,
   "King Who Would have a Beautiful Wife"             , "NA"              , "Italian"      ,
   "Little Hare"                                      , "NA"              , "African"      ,
@@ -339,7 +336,6 @@ pink_fairy_origins <- tibble::tribble(
 
 violet_fairy_origins <- tibble::tribble(
   ~Tale                                                , ~AT                            , ~Country       ,
-  NA                                                   , NA                             , " "            ,
   "Boys with Golden Stars"                             , "707"                          , "Romanian"     ,
   "Child Who Came from an Egg"                         , "NA"                           , "Estonian"     ,
   "Enchanted Knife"                                    , "576"                          , "Serbian"      ,
@@ -379,7 +375,6 @@ violet_fairy_origins <- tibble::tribble(
 
 yellow_fairy_origins <- tibble::tribble(
   ~Tale                                          , ~AT    , ~Country          ,
-  NA                                             , NA     , " "               ,
   "Alphege or the Green Monkey"                  , "NA"   , "Unattributed"    ,
   "Blockhead-Hans"                               , "853"  , "Unattributed"    ,
   "Blue Mountains"                               , "301A" , "Unattributed"    ,
@@ -474,7 +469,6 @@ blue_fairy_origins <- tibble::tribble(
 
 brown_fairy_origins <- tibble::tribble(
   ~Title                                              , ~AT        , ~Country                ,
-  NA                                                  , NA         , " "                     ,
   "Asmund and Signy"                                  , "870B*"    , "Icelandic"             ,
   "Ball-Carrier and the Bad One"                      , "NA"       , "Native American"       ,
   "Bunyip"                                            , "NA"       , "Oceania"               ,
