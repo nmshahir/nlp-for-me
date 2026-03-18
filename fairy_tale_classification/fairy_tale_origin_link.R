@@ -437,9 +437,8 @@ blue_fairy_origins <- tibble::tribble(
   "Forty Thieves"                                      , "676"      , "Arabian Nights" ,
   "GooseGirl"                                          , "533"      , "German"         ,
   "Hansel and Grettel"                                 , "327A"     , "German"         ,
-  "History of Jack Giant-Killer"                       , "300"      , "Scotland"       ,
+  "History of Jack Giant-Killer"                       , "300, 328" , "Scotland"       ,
   "History of Whittington"                             , "1651"     , "Unattributed"   ,
-  "History of Jack Giant-Killer"                       , "328"      , "Scotland"       ,
   "Little Red Riding Hood"                             , "333"      , "Unattributed"   ,
   "Little Thumb"                                       , "327B"     , "French"         ,
   "Master Cat, or Puss in Boots"                       , "545B"     , "French"         ,
@@ -501,4 +500,31 @@ brown_fairy_origins <- tibble::tribble(
   "What the Rose Did to the Cypress"                  , "NA"       , "Persian"               ,
   "Which was the Foolishest?"                         , "1406"     , "Icelandic"             ,
   "Wicked Wolverine"                                  , "NA"       , "Native American"
+)
+
+# Import table found on reddit
+# Source: https://www.reddit.com/r/folklore/comments/1lu402g/atu_index_spreadsheet_for_writers_folklorists/
+# Date: 2026.03.16
+atu_table_pre_clean <- read.csv2(
+  "C:/Users/nmshahir/Documents/Data_Science_Practice/ATU_reddit_pre_cleaning.txt",
+  sep = "\t",
+  stringsAsFactors = FALSE
+)
+
+atu_table <- atu_table_pre_clean |>
+  mutate(AT = str_replace_all(AT, "[^[:alnum:][:space:]*]", " ")) |>
+  mutate(AT = str_squish(AT))
+
+saveRDS(atu_table, "cleaned_atu_index.rds")
+
+
+cleaned_blue <- readRDS(file.choose())
+blue_stories <- unique(cleaned_blue$story)
+# Case-insensitive matching
+agrep(
+  blue_fairy_origins$Title,
+  blue_stories,
+  max.distance = 2,
+  ignore.case = TRUE,
+  value = TRUE
 )
