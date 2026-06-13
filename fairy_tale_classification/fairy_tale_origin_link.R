@@ -519,7 +519,22 @@ saveRDS(atu_table, "cleaned_atu_index.rds")
 
 
 cleaned_blue <- readRDS(file.choose())
+cleaned_brown <- readRDS(file.choose())
+cleaned_crimson <- readRDS(file.choose())
+cleaned_green <- readRDS(file.choose())
+cleaned_gray <- readRDS(file.choose())
+cleaned_lilac <- readRDS(file.choose())
+cleaned_olive <- readRDS(file.choose())
+cleaned_orange <- readRDS(file.choose())
+cleaned_pink <- readRDS(file.choose())
+cleaned_red <- readRDS(file.choose())
+cleaned_violet <- readRDS(file.choose())
+cleaned_yellow <- readRDS(file.choose())
+
+
 blue_stories <- unique(cleaned_blue$story)
+
+
 # Case-insensitive matching
 agrep(
   blue_fairy_origins$Title,

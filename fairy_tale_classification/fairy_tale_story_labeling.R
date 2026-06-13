@@ -70,6 +70,10 @@ green_fairy_book_stories <- green_fairy_book |>
 green_fairy_stories_only <- green_fairy_book_stories |>
   slice(147:12130)
 
+green_fairy_stories_only <- green_fairy_book_stories_fixed |>
+  slice(147:12130)
+
+
 # Okay lets get a few more fairy tales
 gutenberg_works(title == "The Blue Fairy Book")
 gutenberg_works(title == "The Red Fairy Book")
@@ -81,6 +85,7 @@ gutenberg_works(title == "The Brown Fairy Book")
 gutenberg_works(title == "The Orange Fairy Book")
 gutenberg_works(title == "The Olive Fairy Book")
 gutenberg_works(title == "The Lilac Fairy Book")
+gutenberg_works(title == "The Yellow Fairy Book")
 
 blue_fairy_book <- gutenberg_download(503)
 red_fairy_book <- gutenberg_download(540)
@@ -93,6 +98,7 @@ brown_fairy_book <- gutenberg_download(3282)
 orange_fairy_book <- gutenberg_download(36532)
 olive_fairy_book <- gutenberg_download(27826)
 lilac_fairy_book <- gutenberg_download(3454)
+yellow_fairy_book <- gutenberg_download(640)
 
 # Cleaning The Blue Fairy Book
 blue_chapter_titles <- blue_fairy_book |>
@@ -337,6 +343,30 @@ lilac_fairy_book_stories <- lilac_fairy_book |>
 
 lilac_fairy_stories_only <- lilac_fairy_book_stories |>
   slice(175:10626)
+
+
+# Cleaning The Yellow Fairy Book
+yellow_chapter_titles <- yellow_fairy_book |>
+  slice(126:173) |> # getting the range of titles
+  mutate(text = toupper(text)) |> # I convert them to uppercase
+  pull(text) |> # tell R I just want the text column
+  str_trim() # trimming excess characters
+
+yellow_regex <- yellow_chapter_titles |>
+  str_escape() |>
+  str_c(collapse = "|") |>
+  (\(x) str_c("^\\s*(", x, ")\\s*$"))()
+
+yellow_fairy_book_stories <- yellow_fairy_book |>
+  gutenberg_add_sections(
+    pattern = yellow_regex,
+    section_col = "story",
+    ignore_case = TRUE,
+    format_fn = str_trim
+  )
+
+yellow_fairy_stories_only <- yellow_fairy_book_stories |>
+  slice(184:11312)
 
 #Save all of the fairy tales into an Rdata file
 
