@@ -27,16 +27,47 @@ gutenberg_get_mirror()
 pink_fairy_book <- gutenberg_download(5615)
 
 # Cleaning The Pink Fairy Book
+#Original version
+# pink_chapter_titles <- pink_fairy_book |>
+#   slice(55:95) |>
+#   mutate(text = toupper(str_remove_all(text, "\\."))) |>
+#   pull(text) |>
+#   str_trim()
+
+# pink_regex <- pink_chapter_titles |>
+#   str_escape() |>
+#   str_c(collapse = "|") |>
+#   (\(x) str_c("^\\s*(", x, ")\\s*$"))()
+
+# Asked positron to fix it
+# pink_chapter_titles <- pink_fairy_book |>
+#   slice(55:95) |>
+#   mutate(text = toupper(str_trim(text))) |>
+#   mutate(text = str_remove(text, "\\.$")) |> # strip trailing period (e.g. "The Cat's Elopement.")
+#   pull(text) |>
+#   str_replace("THE SNOW MAN", "THE SNOW.?MAN") # match "Snow Man" and "Snow-man"
+
+# pink_regex <- pink_chapter_titles |>
+#   str_escape() |>
+#   str_c(collapse = "|") |>
+#   str_c("^\\s*(", ... = _, ")\\s*\\.?$")
+
+# pink_regex <- regex(pink_regex, ignore_case = TRUE)
+
+#Try number 2
 pink_chapter_titles <- pink_fairy_book |>
   slice(55:95) |>
-  mutate(text = toupper(str_remove_all(text, "\\."))) |>
-  pull(text) |>
-  str_trim()
+  mutate(text = toupper(str_trim(text))) |>
+  mutate(text = str_remove(text, "\\.$")) |>
+  pull(text)
 
 pink_regex <- pink_chapter_titles |>
   str_escape() |>
+  str_replace("THE SNOW MAN", "THE SNOW.?MAN") |> # after escaping, so .? stays as regex
   str_c(collapse = "|") |>
-  (\(x) str_c("^\\s*(", x, ")\\s*$"))()
+  str_c("^\\s*(", ... = _, ")\\s*\\.?$")
+
+pink_regex <- regex(pink_regex, ignore_case = TRUE)
 
 #this is different because the periods are inconsistent for this book
 pink_fairy_book_stories <- pink_fairy_book |>
