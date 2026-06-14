@@ -48,3 +48,7 @@ crimson_fairy_book_stories <- crimson_fairy_book |>
 
 crimson_fairy_stories_only <- crimson_fairy_book_stories |>
   slice(111:10061)
+
+crimson_fairy_stories_only |>
+  count(story) |>
+  print(n = 80)
