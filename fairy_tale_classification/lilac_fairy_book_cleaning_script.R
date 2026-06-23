@@ -62,3 +62,5 @@ lilac_fairy_stories_only <- lilac_fairy_book_stories |>
 lilac_fairy_stories_only |>
   count(story) |>
   print(n = 80)
+
+saveRDS(lilac_fairy_stories_only, "cleaned_lilac_fairy_book.rds")

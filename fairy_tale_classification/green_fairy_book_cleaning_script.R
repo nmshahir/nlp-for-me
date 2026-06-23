@@ -8,7 +8,7 @@
 # Data source: Project Gutenberg
 # Data Obtained: 2026.06.12
 # Date Created: 2026.06.12
-# Last Update: 2026.06.12
+# Last Update: 2026.06.23
 #################################################################
 
 install.packages("tidytext")
@@ -65,12 +65,15 @@ green_fairy_book_stories_fixed <- green_fairy_book |>
     format_fn = str_trim
   )
 
-green_fairy_book_stories_fixed |>
-  count(story) |>
-  print(n = 90)
 
 # I don't care about the preface so lets just remove that (and the table of contents)
 #Bonus from claude: One remaining cosmetic issue: the section label itself now includes the parenthetical (e.g., KING KOJATA (From the Russian)). If you want clean labels, you can strip it after the fact:
 green_fairy_stories_only <- green_fairy_book_stories_fixed |>
   slice(147:12130) |>
   mutate(story = str_remove(story, "\\s*\\(.*\\)$"))
+
+green_fairy_stories_only |>
+  count(story) |>
+  print(n = 80)
+
+saveRDS(green_fairy_stories_only, "cleaned_green_fairy_book.rds")

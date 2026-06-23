@@ -38,8 +38,14 @@ grey_chapter_titles <- grey_fairy_book |>
   # Fix missing hyphen: TOC says "Unlooked For" but body heading says "Unlooked-for"
   str_replace("UNLOOKED FOR PRINCE", "UNLOOKED-FOR PRINCE") |>
   # Split two combined TOC rows into individual story titles
-  str_replace("THE JACKAL AND THE SPRING THE BEAR", "THE JACKAL AND THE SPRING|THE BEAR") |>
-  str_replace("THE SUNCHILD THE DAUGHTER OF BUK ETTEMSUCH", "THE SUNCHILD|THE DAUGHTER OF BUK ETTEMSUCH") |>
+  str_replace(
+    "THE JACKAL AND THE SPRING THE BEAR",
+    "THE JACKAL AND THE SPRING|THE BEAR"
+  ) |>
+  str_replace(
+    "THE SUNCHILD THE DAUGHTER OF BUK ETTEMSUCH",
+    "THE SUNCHILD|THE DAUGHTER OF BUK ETTEMSUCH"
+  ) |>
   str_split("\\|") |>
   unlist()
 
@@ -65,3 +71,5 @@ grey_fairy_stories_only <- grey_fairy_book_stories |>
 grey_fairy_stories_only |>
   count(story) |>
   print(n = 80)
+
+saveRDS(grey_fairy_stories_only, "cleaned_grey_fairy_book.rds")
