@@ -15,6 +15,7 @@
   -  [x] Cleaned "The Lilac Fairy Book"
   -  [x] Cleaned "The Yellow Fairy Book"
 - [ ] Clean fairy story origin table
+- [x] Clean AT classifications table
 - [ ] Harmonize titles between origin table and fairy books
 
 ## PART 2
