@@ -8,7 +8,7 @@
 # Data source: Project Gutenberg
 # Data Obtained: 2026.06.12
 # Date Created: 2026.06.12
-# Last Update: 2026.06.12
+# Last Update: 2026.06.23
 #################################################################
 
 install.packages("tidytext")
@@ -54,3 +54,4 @@ crimson_fairy_stories_only |>
   print(n = 80)
 
 ##WHOOO NO POSIT ASSISTANT NEEDED
+saveRDS(crimson_fairy_stories_only, "cleaned_crimson_fairy_book.rds")

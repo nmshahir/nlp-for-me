@@ -8,7 +8,7 @@
 # Data source: Project Gutenberg
 # Data Obtained: 2026.06.14
 # Date Created: 2026.06.14
-# Last Update: 2026.06.14
+# Last Update: 2026.06.23
 #################################################################
 
 install.packages("tidytext")
@@ -92,3 +92,5 @@ yellow_fairy_stories_only <- yellow_fairy_book_stories |>
 yellow_fairy_stories_only |>
   count(story) |>
   print(n = 80)
+
+saveRDS(yellow_fairy_stories_only, "cleaned_yellow_fairy_book.rds")
