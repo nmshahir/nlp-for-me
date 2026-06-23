@@ -22,7 +22,7 @@
   -  [ ] Harmonized "The Pink Fairy Book"
   -  [ ] Harmonized "The Grey Fairy Book"
   -  [ ] Harmonized "The Violet Fairy Book"
-  -  [ ] Harmonized "The Crimson Fairy Book"
+  -  [x] Harmonized "The Crimson Fairy Book"
   -  [ ] Harmonized "The Brown Fairy Book"
   -  [ ] Harmonized "The Orange Fairy Book"
   -  [ ] Harmonized "The Olive Fairy Book"
