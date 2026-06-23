@@ -116,3 +116,5 @@ setdiff(
   ),
   violet_fairy_book_stories$story
 )
+
+saveRDS(violet_fairy_stories_only, "cleaned_violet_fairy_book.rds")

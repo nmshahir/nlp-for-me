@@ -85,3 +85,5 @@ pink_fairy_stories_only <- pink_fairy_book_stories |>
 pink_fairy_stories_only |>
   count(story) |>
   print(n = 80)
+
+saveRDS(pink_fairy_stories_only, "cleaned_pink_fairy_book.rds")
